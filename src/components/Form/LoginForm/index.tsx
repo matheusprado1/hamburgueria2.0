@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { api } from '../../../services/api';
 import { useContext } from 'react';
 import { UserContext } from '../../../providers/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
 
@@ -16,6 +17,8 @@ const LoginForm = () => {
   });
 
   const { setUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const submit: SubmitHandler<TLoginData> = async (data) => {
     try {
@@ -26,6 +29,7 @@ const LoginForm = () => {
         setUser(response.data.user);
         localStorage.setItem("accessToken", response.data.accessToken)
       }
+      navigate("/shop")
 
     } catch (error) {
       console.log(error)
