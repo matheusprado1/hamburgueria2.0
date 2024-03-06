@@ -1,0 +1,32 @@
+import React, { createContext, useEffect, useState } from "react";
+import { api } from "../../services/api";
+
+export interface IUser {
+  id: number,
+  name: string,
+  email: string,
+  password: string
+}
+
+interface IUserProviderProps {
+  children: React.ReactNode;
+}
+
+interface IUserContext {
+  user: IUser | null,
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>,
+}
+
+export const UserContext = createContext({} as IUserContext);
+
+export const UserProvider = ({ children }: IUserProviderProps) => {
+  const [user, setUser] = useState<IUser | null>(null)
+
+  return (
+    <UserContext.Provider
+      value={{ user, setUser }}
+    >
+      {children}
+    </UserContext.Provider>
+  )
+}
