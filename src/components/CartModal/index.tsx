@@ -4,7 +4,11 @@ import CartProductList from './CartProductList';
 import { StyledCartModalBox } from './style';
 import { StyledParagraph, StyledTitle } from '../../styles/typography';
 
-const CartModal = () => (
+interface CartModalProps {
+  onClose: () => void;
+}
+
+const CartModal = ({ onClose }: CartModalProps) => (
   <StyledCartModalBox>
     <dialog>
       <header>
@@ -14,9 +18,7 @@ const CartModal = () => (
         <button
           type='button'
           aria-label='Fechar'
-          onClick={() => {
-            console.log('Lógica aqui');
-          }}
+          onClick={onClose}
         >
           <MdClose size={21} />
         </button>
