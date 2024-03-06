@@ -9,6 +9,7 @@ import { api } from '../../../services/api';
 import { useContext } from 'react';
 import { UserContext } from '../../../providers/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../providers/AuthContext';
 
 const LoginForm = () => {
 
@@ -17,6 +18,7 @@ const LoginForm = () => {
   });
 
   const { setUser } = useContext(UserContext);
+  const { setToken } = useAuth();
 
   const navigate = useNavigate();
 
@@ -26,10 +28,10 @@ const LoginForm = () => {
       const response = await api.post("/login", data);
 
       if (response.data.user && response.data.accessToken) {
+        setToken(response.data.accessToken);
         setUser(response.data.user);
-        localStorage.setItem("accessToken", response.data.accessToken)
+        navigate("/shop")
       }
-      navigate("/shop")
 
     } catch (error) {
       console.log(error)

@@ -7,10 +7,10 @@ import LogoKenzieBurguer from '../../assets/LogoKenzieBurguer.svg';
 import { StyledContainer } from '../../styles/grid';
 
 interface CartModalProps {
-  onClick: () => void;
+  handleOpenModal: () => void;
 }
 
-const Header = ({ onClick }: CartModalProps) => {
+const Header = ({ handleOpenModal }: CartModalProps) => {
 
   return (
     <StyledHeader>
@@ -26,7 +26,7 @@ const Header = ({ onClick }: CartModalProps) => {
             <div className='buttons'>
               <button
                 type='button'
-                onClick={onClick}
+                onClick={handleOpenModal}
               >
                 <MdShoppingCart size={28} />
               </button>

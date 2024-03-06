@@ -1,5 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
-import { api } from "../../services/api";
+import React, { createContext, useState } from "react";
 
 export interface IUser {
   id: number,

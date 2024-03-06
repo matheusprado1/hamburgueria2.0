@@ -13,11 +13,12 @@ const ShopPage = () => {
   return (
     <StyledShopPage>
       {isOpen && (
-        <CartModal onClose={toggle} />
-
+        <CartModal
+          onClose={toggle}
+        />
       )}
       <Header
-        onClick={toggle}
+        handleOpenModal={toggle}
       />
       <main>
         <StyledContainer containerWidth={1300}>
