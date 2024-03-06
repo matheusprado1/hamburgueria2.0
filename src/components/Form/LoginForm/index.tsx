@@ -29,8 +29,9 @@ const LoginForm = () => {
 
       if (response.data.user && response.data.accessToken) {
         setToken(response.data.accessToken);
+        localStorage.setItem("accessToken", response.data.accessToken)
         setUser(response.data.user);
-        navigate("/shop")
+        navigate("/shop");
       }
 
     } catch (error) {
