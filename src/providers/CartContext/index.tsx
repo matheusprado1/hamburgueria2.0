@@ -17,9 +17,9 @@ export const ShoppingCartProvider = ({ children }: IShoppingCartProviderProps) =
   const [shoppingCart, setShoppingCart] = useState<IProduct[]>([]);
 
   const addProductToCart = (product: IProduct) => {
-    if (!shoppingCart.some((cartProduct) => cartProduct.id === product.id)) {
-      setShoppingCart([...shoppingCart, product])
-    }
+    // if (!shoppingCart.some((cartProduct) => cartProduct.id === product.id)) {
+    setShoppingCart([...shoppingCart, product])
+    // }
   }
 
   return (

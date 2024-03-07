@@ -3,9 +3,6 @@ import { MdDelete } from 'react-icons/md';
 import { StyledCartProductCard } from './style';
 import { StyledTitle } from '../../../../styles/typography';
 
-import { useContext } from 'react';
-import { ProductContext } from '../../../../providers/ProductsContext';
-
 interface ICartProductCardProps {
   product: {
     id: number;

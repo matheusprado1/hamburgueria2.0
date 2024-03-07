@@ -18,8 +18,8 @@ const CartProductList = () => {
   return (
     <StyledCartProductList>
       <ul>
-        {shoppingCart.map((product) => (
-          <CartProductCard key={product.id} product={product} />
+        {shoppingCart.map((product, index) => (
+          <CartProductCard key={index} product={product} />
         ))}
       </ul>
       <div className='totalBox'>
