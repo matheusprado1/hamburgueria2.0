@@ -11,6 +11,8 @@ import { useContext } from 'react';
 import { UserContext } from '../../providers/UserContext';
 import { useAuth } from '../../providers/AuthContext';
 
+import { toast } from 'react-toastify';
+
 const ShopPage = () => {
 
 
@@ -26,6 +28,7 @@ const ShopPage = () => {
     localStorage.removeItem("accessToken");
     setToken(null);
     setUser(null);
+    toast.success("Até mais!")
     navigate("/");
   }
 

@@ -10,17 +10,19 @@ import { useContext } from 'react';
 import { UserContext } from '../../../providers/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../providers/AuthContext';
+import { toast } from 'react-toastify';
 
 const LoginForm = () => {
+
+  const { setUser } = useContext(UserContext);
+  const { setToken } = useAuth();
+  const navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors }, } = useForm<TLoginData>({
     resolver: zodResolver(loginFormSchema)
   });
 
-  const { setUser } = useContext(UserContext);
-  const { setToken } = useAuth();
 
-  const navigate = useNavigate();
 
   const submit: SubmitHandler<TLoginData> = async (data) => {
     try {
@@ -31,18 +33,21 @@ const LoginForm = () => {
         setToken(response.data.accessToken);
         localStorage.setItem("accessToken", response.data.accessToken)
         setUser(response.data.user);
+        toast.success("Login realizado com sucesso!")
         navigate("/shop");
       }
 
     } catch (error) {
       console.log(error)
+
+      toast.error("Credênciais inválidas!")
     }
   };
 
   return (
     <StyledForm onSubmit={handleSubmit(submit)}>
       <Input id='email' {...register("email")} error={errors.email?.message} />
-      <Input id='senha' {...register("password")} error={errors.password?.message} />
+      <Input id='senha' type="password" {...register("password")} error={errors.password?.message} />
       <StyledButton $buttonSize='default' $buttonStyle='green'>
         Entrar
       </StyledButton>

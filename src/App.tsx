@@ -5,17 +5,24 @@ import { ProductProvider } from './providers/ProductsContext';
 import { AuthProvider } from './providers/AuthContext';
 import { ShoppingCartProvider } from './providers/CartContext';
 
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 const App = () => (
-  <UserProvider>
-    <AuthProvider>
-      <ProductProvider>
-        <ShoppingCartProvider>
-          <GlobalStyles />
-          <Router />
-        </ShoppingCartProvider>
-      </ProductProvider>
-    </AuthProvider>
-  </UserProvider>
+  <>
+    <GlobalStyles />
+    <UserProvider>
+      <AuthProvider>
+        <ProductProvider>
+          <ShoppingCartProvider>
+            <Router />
+            <ToastContainer />
+          </ShoppingCartProvider>
+        </ProductProvider>
+      </AuthProvider>
+    </UserProvider>
+  </>
+
 );
 
 export default App;
