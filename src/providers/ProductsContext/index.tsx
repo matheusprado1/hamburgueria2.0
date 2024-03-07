@@ -17,14 +17,14 @@ interface IProductListProviderProps {
 }
 
 interface IProductListContext {
-  productList: IProduct[],
+  productList: IProduct[]
 }
 
 export const ProductContext = createContext({} as IProductListContext);
 
 export const ProductProvider = ({ children }: IProductListProviderProps) => {
-
   const [productList, setProductList] = useState<IProduct[]>([]);
+
   const { token } = useContext(AuthContext) || { accessToken: '' };;
 
   useEffect(() => {
@@ -43,6 +43,9 @@ export const ProductProvider = ({ children }: IProductListProviderProps) => {
     }
   }, [token]); // Adicionando o token como dependência do useEffect
 
+  // useEffect(() => {
+  //   console.log(currentProduct);
+  // }, [currentProduct]);
 
   return (
     <ProductContext.Provider

@@ -3,13 +3,16 @@ import { GlobalStyles } from './styles/global';
 import { UserProvider } from './providers/UserContext';
 import { ProductProvider } from './providers/ProductsContext';
 import { AuthProvider } from './providers/AuthContext';
+import { ShoppingCartProvider } from './providers/CartContext';
 
 const App = () => (
   <UserProvider>
     <AuthProvider>
       <ProductProvider>
-        <GlobalStyles />
-        <Router />
+        <ShoppingCartProvider>
+          <GlobalStyles />
+          <Router />
+        </ShoppingCartProvider>
       </ProductProvider>
     </AuthProvider>
   </UserProvider>
