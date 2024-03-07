@@ -17,13 +17,17 @@ interface IProductListProviderProps {
 }
 
 interface IProductListContext {
-  productList: IProduct[]
+  productList: IProduct[],
+  searchTerm: string,
+  setSearchTerm: (term: string) => void
 }
 
 export const ProductContext = createContext({} as IProductListContext);
 
 export const ProductProvider = ({ children }: IProductListProviderProps) => {
   const [productList, setProductList] = useState<IProduct[]>([]);
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { token } = useContext(AuthContext) || { accessToken: '' };;
 
@@ -49,7 +53,7 @@ export const ProductProvider = ({ children }: IProductListProviderProps) => {
 
   return (
     <ProductContext.Provider
-      value={{ productList }}
+      value={{ productList, searchTerm, setSearchTerm }}
     >
       {children}
     </ProductContext.Provider>

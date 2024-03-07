@@ -4,14 +4,16 @@ import { useContext } from 'react';
 import { ProductContext } from '../../providers/ProductsContext';
 
 const ProductList = () => {
+  const { productList, searchTerm } = useContext(ProductContext);
 
-  const { productList } = useContext(ProductContext);
+  const filteredProducts = productList.filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <StyledProductList>
-      {productList.map((product) => (
+      {filteredProducts.map((product) => (
         <ProductCard key={product.id} product={product} />
-
       ))}
     </StyledProductList>
   )
