@@ -9,7 +9,7 @@ import { ShoppingCartContext } from '../../../providers/CartContext';
 
 const CartProductList = () => {
 
-  const { shoppingCart } = useContext(ShoppingCartContext);
+  const { shoppingCart, removeAllProductsFromCart } = useContext(ShoppingCartContext);
 
   const total = shoppingCart.reduce((acc, curr) => {
     return acc + curr.price;
@@ -28,7 +28,9 @@ const CartProductList = () => {
         </StyledParagraph>
         <StyledParagraph className='total'>{total.toLocaleString('pt-BR', { style: "currency", currency: "BRL" })}</StyledParagraph>
       </div>
-      <StyledButton $buttonSize='default' $buttonStyle='gray'>
+      <StyledButton $buttonSize='default' $buttonStyle='gray'
+        onClick={() => removeAllProductsFromCart()}
+      >
         Remover todos
       </StyledButton>
     </StyledCartProductList>

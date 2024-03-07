@@ -9,6 +9,7 @@ interface IShoopingCartContext {
   shoppingCart: IProduct[];
   addProductToCart: (product: IProduct) => void;
   removeProductFromCart: (product: IProduct) => void;
+  removeAllProductsFromCart: () => void;
 }
 
 export const ShoppingCartContext = createContext({} as IShoopingCartContext);
@@ -29,9 +30,13 @@ export const ShoppingCartProvider = ({ children }: IShoppingCartProviderProps) =
     }
   }
 
+  const removeAllProductsFromCart = () => {
+    setShoppingCart([]);
+  }
+
   return (
     <ShoppingCartContext.Provider
-      value={{ shoppingCart, addProductToCart, removeProductFromCart }}
+      value={{ shoppingCart, addProductToCart, removeProductFromCart, removeAllProductsFromCart }}
     >
       {children}
     </ShoppingCartContext.Provider>
