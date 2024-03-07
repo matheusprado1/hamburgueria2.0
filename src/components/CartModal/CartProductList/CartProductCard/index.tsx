@@ -2,6 +2,8 @@ import { MdDelete } from 'react-icons/md';
 
 import { StyledCartProductCard } from './style';
 import { StyledTitle } from '../../../../styles/typography';
+import { useContext } from 'react';
+import { ShoppingCartContext } from '../../../../providers/CartContext';
 
 interface ICartProductCardProps {
   product: {
@@ -14,7 +16,7 @@ interface ICartProductCardProps {
 }
 
 const CartProductCard = ({ product }: ICartProductCardProps) => {
-
+  const { removeProductFromCart } = useContext(ShoppingCartContext)
 
   return (
     <StyledCartProductCard>
@@ -25,7 +27,7 @@ const CartProductCard = ({ product }: ICartProductCardProps) => {
         <StyledTitle tag='h3' $fontSize='three'>
           {product.name}
         </StyledTitle>
-        <button type='button' aria-label='Remover'>
+        <button type='button' aria-label='Remover' onClick={() => removeProductFromCart(product)}>
           <MdDelete size={24} />
         </button>
       </div>
