@@ -8,9 +8,10 @@ import { StyledContainer } from '../../styles/grid';
 
 interface CartModalProps {
   handleOpenModal: () => void;
+  handleLogout: () => void;
 }
 
-const Header = ({ handleOpenModal }: CartModalProps) => {
+const Header = ({ handleOpenModal, handleLogout }: CartModalProps) => {
 
   return (
     <StyledHeader>
@@ -30,7 +31,9 @@ const Header = ({ handleOpenModal }: CartModalProps) => {
               >
                 <MdShoppingCart size={28} />
               </button>
-              <button type='button'>
+              <button type='button'
+                onClick={handleLogout}
+              >
                 <MdLogout size={28} />
               </button>
             </div>
