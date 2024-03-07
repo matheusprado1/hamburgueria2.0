@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { AuthContext } from "../AuthContext";
+import { AxiosError } from "axios";
 
 
 export interface IProduct {
@@ -34,7 +35,8 @@ export const ProductProvider = ({ children }: IProductListProviderProps) => {
           const response = await api.get("/products");
           setProductList(response.data);
         } catch (error) {
-          console.log(error);
+          const currentError = error as AxiosError<string>
+          console.log(currentError);
         }
       };
       getProducts();

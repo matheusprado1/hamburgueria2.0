@@ -41,8 +41,8 @@ const LoginForm = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(submit)}>
-      <Input id='email' {...register("email")} />
-      <Input id='senha' {...register("password")} />
+      <Input id='email' {...register("email")} error={errors.email?.message} />
+      <Input id='senha' {...register("password")} error={errors.password?.message} />
       <StyledButton $buttonSize='default' $buttonStyle='green'>
         Entrar
       </StyledButton>

@@ -1,4 +1,3 @@
-// AutenticaçãoContext.tsx
 import { createContext, useContext, useState } from 'react';
 
 // Definindo o tipo para o token
