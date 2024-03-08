@@ -6,12 +6,17 @@ import LogoKenzieBurguer from '../../assets/LogoKenzieBurguer.svg';
 
 import { StyledContainer } from '../../styles/grid';
 
+import { useContext } from 'react';
+import { ShoppingCartContext } from '../../providers/CartContext';
+
 interface CartModalProps {
   handleOpenModal: () => void;
   handleLogout: () => void;
 }
 
 const Header = ({ handleOpenModal, handleLogout }: CartModalProps) => {
+
+  const { shoppingCart } = useContext(ShoppingCartContext);
 
   return (
     <StyledHeader>
@@ -30,6 +35,7 @@ const Header = ({ handleOpenModal, handleLogout }: CartModalProps) => {
                 onClick={handleOpenModal}
               >
                 <MdShoppingCart size={28} />
+                <span>{shoppingCart.length}</span>
               </button>
               <button type='button'
                 onClick={handleLogout}
