@@ -1,6 +1,6 @@
 ## Descrição
 
-Este respositório contem a versão melhorada da hamburgueria que criei com React `https://github.com/matheusprado1/dev-burger`. Esta nova versão foi feita com TypeScript.
+Este respositório contém a versão melhorada da hamburgueria que criei com React em => `https://github.com/matheusprado1/dev-burger`. Esta nova versão foi feita com TypeScript.
 
 ## Tecnologias
 
@@ -27,7 +27,6 @@ Este respositório contem a versão melhorada da hamburgueria que criei com Reac
 │   ├── App.tsx
 │   ├── declarations.d.ts
 │   ├── main.tsx
-│   ├── pages
 │   ├── providers
 │   ├── routes.tsx
 │   ├── vite-env.d.ts
