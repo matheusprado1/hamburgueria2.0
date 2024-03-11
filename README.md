@@ -6,6 +6,7 @@ Este respositório contém a versão melhorada da hamburgueria que criei com Rea
 
 - TypeScript
 - React.js
+- Context API
 - Axios
 - Styled-components
 - React-hook-form
