@@ -14,6 +14,11 @@ Este respositório contém a versão melhorada da hamburgueria que criei com Rea
 - React-icons
 - React-toastify
 
+## Deploy
+
+Para o deploy da aplicação foi utilizado o Vercel
+
+link: https://hamburgueria2-0-gray.vercel.app
 
 ## Estrutura do Projeto
 ```bash
